@@ -44,7 +44,7 @@ export const LinkedInBadge: React.FC = () => {
         ref={badgeRef}
         className="badge-base LI-profile-badge"
         data-locale="en_US"
-        data-size="medium"
+        data-size="large"
         data-theme={currentTheme}
         data-type="VERTICAL"
         data-vanity="muhammad-osama-50b61713a"

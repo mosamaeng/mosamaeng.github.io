@@ -52,7 +52,7 @@ export const About: React.FC = () => {
             </div>
 
             {/* LinkedIn Badge Widget without custom wrapper header */}
-            <div className="w-full md:w-[280px] shrink-0">
+            <div className="w-full md:w-[320px] shrink-0">
               <LinkedInBadge />
             </div>
           </div>
