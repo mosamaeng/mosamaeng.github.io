@@ -15,8 +15,12 @@ export interface Education {
   location: string;
 }
 
+import { getYearsOfExperience } from '../utils/experience';
+
 export const careerNarrative = {
-  paragraph1: "Across 8+ years of engineering production systems, my trajectory has followed a natural progression: from shipping core product features, to refactoring high-traffic database bottlenecks, to taking complete ownership of infrastructure, microservices, and system architecture. I specialize in designing backends that don't just process requests—they remain resilient under heavy data loads, recover gracefully from API disruptions, and scale predictably across Linux-based cloud environments.",
+  get paragraph1() {
+    return `Across ${getYearsOfExperience()} years of engineering production systems, my trajectory has followed a natural progression: from shipping core product features, to refactoring high-traffic database bottlenecks, to taking complete ownership of infrastructure, microservices, and system architecture. I specialize in designing backends that don't just process requests—they remain resilient under heavy data loads, recover gracefully from API disruptions, and scale predictably across Linux-based cloud environments.`;
+  },
   paragraph2: "What continuously drives my engineering focus is building resilient, self-healing systems and automation pipelines. Whether it's architecting a dual-model LLM fallback (Gemini → Gemma) to ensure zero workflow downtime during cloud outages, optimizing MySQL query execution plans to deliver a 40% performance boost, or hardening SSH-secured Linux servers behind AWS Security Groups — I operate at the intersection of infrastructure stability, data flow efficiency, and developer velocity.",
   paragraph3: "I embrace AI-assisted development as a force multiplier, not a crutch. Cursor IDE and Claude Code accelerate my architecture prototyping and code generation, while Gemini Code Assist and ChatGPT help me reason through complex system trade-offs. My workflow pairs these tools with deep hands-on Git discipline — feature branching, pull request reviews, and GitHub Actions CI/CD pipelines ensuring every deployment is tested, linted, and reproducible.",
   paragraph4: "Beyond enterprise engineering roles, I actively design and deploy end-to-end production platforms independently — from an Enterprise Management System (EMS) running geolocation-verified HR and payroll, to a polyglot mass electoral ingestion pipeline handling hundreds of thousands of records, to high-converting SEO infrastructure for engineering firms. Every project is containerized with Docker, version-controlled on GitHub, and deployed through automated pipelines on hardened Linux servers."

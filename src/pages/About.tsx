@@ -3,8 +3,11 @@ import { careerNarrative, workExperiences, educationList } from '../data/experie
 import { User, Briefcase, GraduationCap, ArrowRight, Terminal } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { LinkedInBadge } from '../components/LinkedInBadge';
+import { getYearsOfExperience } from '../utils/experience';
 
 export const About: React.FC = () => {
+  const yearsExp = getYearsOfExperience();
+
   return (
     <div className="container mx-auto px-4 py-12 space-y-16 max-w-4xl">
       
@@ -18,54 +21,60 @@ export const About: React.FC = () => {
           Muhammad Osama
         </h1>
         <p className="text-xl font-mono" style={{ color: 'var(--accent-cyan)' }}>
-          Senior Backend Engineer • 8+ Years Experience
+          Senior Backend Engineer • {yearsExp} Years Experience
         </p>
       </div>
 
-      {/* Career Narrative + LinkedIn Badge Side-by-Side */}
-      <section className="space-y-6">
-        <div className="flex flex-col lg:flex-row gap-8">
-          
-          {/* Career Narrative Card */}
+      {/* Full-width Career Narrative Card */}
+      <section>
+        <div
+          className="p-6 sm:p-8 rounded-3xl space-y-6 text-base leading-relaxed w-full"
+          style={{
+            backgroundColor: 'var(--bg-card)',
+            border: '1px solid var(--border-dim)',
+            color: 'var(--text-secondary)',
+          }}
+        >
+          {/* Card Header */}
           <div
-            className="p-8 rounded-3xl space-y-6 text-base leading-relaxed flex-1"
-            style={{
-              backgroundColor: 'var(--bg-card)',
-              border: '1px solid var(--border-dim)',
-              color: 'var(--text-secondary)',
-            }}
+            className="flex items-center gap-3 font-heading font-bold text-lg pb-4"
+            style={{ color: 'var(--text-primary)', borderBottom: '1px solid var(--border-dim)' }}
           >
-            <div
-              className="flex items-center gap-3 font-heading font-bold text-lg pb-4"
-              style={{ color: 'var(--text-primary)', borderBottom: '1px solid var(--border-dim)' }}
-            >
-              <Terminal className="w-5 h-5" style={{ color: 'var(--accent-cyan)' }} />
-              The Career Through-Line
+            <Terminal className="w-5 h-5" style={{ color: 'var(--accent-cyan)' }} />
+            The Career Through-Line
+          </div>
+
+          {/* Top Row: Paragraph 1 on Left + LinkedIn Badge on Right */}
+          <div className="flex flex-col md:flex-row gap-6 md:items-center">
+            <div className="flex-1">
+              <p>{careerNarrative.paragraph1}</p>
             </div>
 
-            <p>{careerNarrative.paragraph1}</p>
+            {/* Compact LinkedIn Badge embedded inline on the right */}
+            <div className="w-full md:w-[280px] shrink-0">
+              <div
+                className="w-full rounded-2xl p-3 flex flex-col items-center"
+                style={{
+                  backgroundColor: 'var(--bg-surface)',
+                  border: '1px solid var(--border-dim)',
+                }}
+              >
+                <div
+                  className="text-[10px] font-mono uppercase tracking-widest mb-2 text-center"
+                  style={{ color: 'var(--accent-cyan)' }}
+                >
+                  Verified LinkedIn Profile
+                </div>
+                <LinkedInBadge />
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Section: Paragraphs 2, 3, and 4 Full Width */}
+          <div className="space-y-6 pt-2">
             <p>{careerNarrative.paragraph2}</p>
             <p>{careerNarrative.paragraph3}</p>
             <p>{careerNarrative.paragraph4}</p>
-          </div>
-
-          {/* LinkedIn Profile Badge — Sidebar */}
-          <div className="lg:w-[320px] shrink-0 flex flex-col items-center gap-4">
-            <div
-              className="w-full rounded-2xl p-4 flex flex-col items-center"
-              style={{
-                backgroundColor: 'var(--bg-card)',
-                border: '1px solid var(--border-dim)',
-              }}
-            >
-              <div
-                className="text-xs font-mono uppercase tracking-widest mb-3 text-center"
-                style={{ color: 'var(--accent-cyan)' }}
-              >
-                Verified LinkedIn Profile
-              </div>
-              <LinkedInBadge />
-            </div>
           </div>
 
         </div>

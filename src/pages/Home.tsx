@@ -6,7 +6,10 @@ import { ProjectCard } from '../components/ProjectCard';
 import { projectsData } from '../data/projectsData';
 import { skillsData } from '../data/skillsData';
 
+import { getYearsOfExperience } from '../utils/experience';
+
 export const Home: React.FC = () => {
+  const yearsExp = getYearsOfExperience();
 
   const accentColors: Record<string, string> = {
     cyan: 'var(--accent-cyan)', violet: 'var(--accent-violet)', emerald: 'var(--accent-emerald)',
@@ -47,7 +50,7 @@ export const Home: React.FC = () => {
 
           {/* Positioning Statement */}
           <p className="text-base sm:text-lg leading-relaxed max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-            8+ years building and operating backend systems and automation pipelines on{' '}
+            {yearsExp} years building and operating backend systems and automation pipelines on{' '}
             <span className="font-semibold" style={{ color: 'var(--accent-sky)' }}>Linux</span> — from ERP platforms processing real payroll data to{' '}
             <span className="font-semibold" style={{ color: 'var(--accent-rose)' }}>AI-driven</span> content engines handling hundreds of thousands of records. Every deployment pushed through{' '}
             <span className="font-semibold" style={{ color: 'var(--accent-lime)' }}>GitHub Actions CI/CD</span> pipelines to{' '}
@@ -108,7 +111,7 @@ export const Home: React.FC = () => {
       {/* ===== STAT STRIP ===== */}
       <section className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <StatCard stat="8+ Years" label="Professional Experience" sublabel="Backend Systems, Microservices & Infrastructure" accentColor="cyan" />
+          <StatCard stat={`${yearsExp} Years`} label="Professional Experience" sublabel="Backend Systems, Microservices & Infrastructure" accentColor="cyan" />
           <StatCard stat="40%" label="Query Performance Boost" sublabel="MySQL execution tuning delivered at Get Licensed" accentColor="violet" />
           <StatCard stat="4 Systems" label="Architected End-to-End" sublabel="ERP, AI Engine, Polyglot Mass Ingestion, Web Platform" accentColor="emerald" />
           <StatCard stat="1st Page" label="Google Organic Rank" sublabel="SEO & high-performance engineering achieved for REC" accentColor="amber" />

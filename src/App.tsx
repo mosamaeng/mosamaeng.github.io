@@ -10,16 +10,19 @@ import { Skills } from './pages/Skills';
 import { About } from './pages/About';
 import { Resume } from './pages/Resume';
 
+import { getYearsOfExperience } from './utils/experience';
+
 // Dynamic SEO & Scroll Restoration Helper
 const SEOAndScrollHandler: React.FC = () => {
   const { pathname } = useLocation();
+  const yearsExp = getYearsOfExperience();
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
     // Map routes to dynamic page titles & meta descriptions
     let title = "Muhammad Osama — Senior Backend Engineer & Microservices Architect";
-    let desc = "Muhammad Osama is a Senior Backend Engineer with 8+ years experience architecting scalable backend systems, cloud microservices, and AI/automation pipelines.";
+    let desc = `Muhammad Osama is a Senior Backend Engineer with ${yearsExp} years experience architecting scalable backend systems, cloud microservices, and AI/automation pipelines.`;
 
     if (pathname === '/projects') {
       title = "Architecture & Production Projects — Muhammad Osama";
@@ -34,10 +37,10 @@ const SEOAndScrollHandler: React.FC = () => {
       desc = "7-layer architectural skills taxonomy covering Infrastructure & DevOps, Backend, Databases, AI Automation, AI Tooling (Cursor/Claude Code), Server Security, and Frontend.";
     } else if (pathname === '/about') {
       title = "Career Narrative & Qualifications — Muhammad Osama";
-      desc = "Career progression across 8+ years, FAST-NUCES MS in Software Project Management, SSUET BS Computer Engineering, and engineering philosophy.";
+      desc = `Career progression across ${yearsExp} years, FAST-NUCES MS in Software Project Management, SSUET BS Computer Engineering, and engineering philosophy.`;
     } else if (pathname === '/resume') {
       title = "Resume & PDF View — Muhammad Osama | Senior Backend Engineer";
-      desc = "View and download the official PDF resume of Muhammad Osama, Senior Backend Engineer with 8+ years of experience.";
+      desc = `View and download the official PDF resume of Muhammad Osama, Senior Backend Engineer with ${yearsExp} years of experience.`;
     }
 
     document.title = title;

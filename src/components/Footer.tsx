@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Terminal, Github, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
-import { LinkedInBadge } from './LinkedInBadge';
+import { getYearsOfExperience } from '../utils/experience';
 
 export const Footer: React.FC = () => {
+  const yearsExp = getYearsOfExperience();
+
   return (
     <footer
       className="w-full pt-16 pb-12"
@@ -54,7 +56,7 @@ export const Footer: React.FC = () => {
               Muhammad Osama
             </div>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Senior Backend Engineer with 8+ years architecting scalable microservices, automated pipelines, and enterprise systems.
+              Senior Backend Engineer with {yearsExp} years architecting scalable microservices, automated pipelines, and enterprise systems.
             </p>
             <div className="flex gap-3 pt-2">
               <a
@@ -75,10 +77,6 @@ export const Footer: React.FC = () => {
               >
                 <Linkedin className="w-4 h-4" />
               </a>
-            </div>
-            {/* LinkedIn Verified Badge */}
-            <div className="pt-4">
-              <LinkedInBadge />
             </div>
           </div>
 
