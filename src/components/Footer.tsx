@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Terminal, Github, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { LinkedInBadge } from './LinkedInBadge';
 
 export const Footer: React.FC = () => {
   return (
@@ -74,6 +75,10 @@ export const Footer: React.FC = () => {
               >
                 <Linkedin className="w-4 h-4" />
               </a>
+            </div>
+            {/* LinkedIn Verified Badge */}
+            <div className="pt-4">
+              <LinkedInBadge />
             </div>
           </div>
 

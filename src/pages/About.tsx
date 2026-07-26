@@ -2,6 +2,7 @@ import React from 'react';
 import { careerNarrative, workExperiences, educationList } from '../data/experienceData';
 import { User, Briefcase, GraduationCap, ArrowRight, Terminal } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { LinkedInBadge } from '../components/LinkedInBadge';
 
 export const About: React.FC = () => {
   return (
@@ -21,28 +22,52 @@ export const About: React.FC = () => {
         </p>
       </div>
 
-      {/* 4-Paragraph Career Narrative */}
+      {/* Career Narrative + LinkedIn Badge Side-by-Side */}
       <section className="space-y-6">
-        <div
-          className="p-8 rounded-3xl space-y-6 text-base leading-relaxed"
-          style={{
-            backgroundColor: 'var(--bg-card)',
-            border: '1px solid var(--border-dim)',
-            color: 'var(--text-secondary)',
-          }}
-        >
+        <div className="flex flex-col lg:flex-row gap-8">
+          
+          {/* Career Narrative Card */}
           <div
-            className="flex items-center gap-3 font-heading font-bold text-lg pb-4"
-            style={{ color: 'var(--text-primary)', borderBottom: '1px solid var(--border-dim)' }}
+            className="p-8 rounded-3xl space-y-6 text-base leading-relaxed flex-1"
+            style={{
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-dim)',
+              color: 'var(--text-secondary)',
+            }}
           >
-            <Terminal className="w-5 h-5" style={{ color: 'var(--accent-cyan)' }} />
-            The Career Through-Line
+            <div
+              className="flex items-center gap-3 font-heading font-bold text-lg pb-4"
+              style={{ color: 'var(--text-primary)', borderBottom: '1px solid var(--border-dim)' }}
+            >
+              <Terminal className="w-5 h-5" style={{ color: 'var(--accent-cyan)' }} />
+              The Career Through-Line
+            </div>
+
+            <p>{careerNarrative.paragraph1}</p>
+            <p>{careerNarrative.paragraph2}</p>
+            <p>{careerNarrative.paragraph3}</p>
+            <p>{careerNarrative.paragraph4}</p>
           </div>
 
-          <p>{careerNarrative.paragraph1}</p>
-          <p>{careerNarrative.paragraph2}</p>
-          <p>{careerNarrative.paragraph3}</p>
-          <p>{careerNarrative.paragraph4}</p>
+          {/* LinkedIn Profile Badge — Sidebar */}
+          <div className="lg:w-[320px] shrink-0 flex flex-col items-center gap-4">
+            <div
+              className="w-full rounded-2xl p-4 flex flex-col items-center"
+              style={{
+                backgroundColor: 'var(--bg-card)',
+                border: '1px solid var(--border-dim)',
+              }}
+            >
+              <div
+                className="text-xs font-mono uppercase tracking-widest mb-3 text-center"
+                style={{ color: 'var(--accent-cyan)' }}
+              >
+                Verified LinkedIn Profile
+              </div>
+              <LinkedInBadge />
+            </div>
+          </div>
+
         </div>
       </section>
 
