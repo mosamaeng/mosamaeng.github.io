@@ -1,76 +1,61 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { Linkedin } from 'lucide-react';
 
 export const LinkedInBadge: React.FC = () => {
   const { theme } = useTheme();
-  const isDark = theme === 'dark';
-  const profileUrl = 'https://pk.linkedin.com/in/muhammad-osama-50b61713a';
+  const badgeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Re-trigger LinkedIn script processing on mount & theme change
+    const reloadLinkedInScript = () => {
+      // Remove any existing script instance
+      const existingScript = document.getElementById('linkedin-badge-script');
+      if (existingScript) {
+        existingScript.remove();
+      }
+
+      // Create new script tag
+      const script = document.createElement('script');
+      script.id = 'linkedin-badge-script';
+      script.src = 'https://platform.linkedin.com/badges/js/profile.js';
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+
+      // If LinkedIn SDK's LIRenderAll function is already available, trigger it
+      if ((window as any).LIRenderAll) {
+        try {
+          (window as any).LIRenderAll();
+        } catch (e) {
+          // ignore SDK parse race conditions
+        }
+      }
+    };
+
+    reloadLinkedInScript();
+  }, [theme]);
+
+  const currentTheme = theme === 'dark' ? 'dark' : 'light';
 
   return (
-    <div style={{ width: '100%' }}>
+    <div className="flex items-center justify-center w-full min-h-[250px]">
       <div
-        className="rounded-xl overflow-hidden transition-all"
-        style={{
-          backgroundColor: isDark ? '#1b1f23' : '#ffffff',
-          border: `1px solid ${isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.12)'}`,
-          boxShadow: isDark
-            ? '0 4px 20px rgba(0,0,0,0.3)'
-            : '0 4px 20px rgba(0,0,0,0.08)',
-        }}
+        key={`${currentTheme}-${Date.now()}`}
+        ref={badgeRef}
+        className="badge-base LI-profile-badge"
+        data-locale="en_US"
+        data-size="medium"
+        data-theme={currentTheme}
+        data-type="VERTICAL"
+        data-vanity="muhammad-osama-50b61713a"
+        data-version="v1"
       >
-        {/* LinkedIn Blue Header */}
-        <div
-          className="flex items-center gap-2 px-4 py-2.5"
-          style={{ backgroundColor: '#0a66c2' }}
+        <a
+          className="badge-base__link LI-simple-link sr-only"
+          href="https://pk.linkedin.com/in/muhammad-osama-50b61713a?trk=profile-badge"
         >
-          <Linkedin className="w-4 h-4 text-white" />
-          <span className="text-white text-xs font-semibold tracking-wide">LinkedIn</span>
-        </div>
-
-        {/* Profile Content */}
-        <div className="px-4 py-5 text-center space-y-3">
-
-          {/* Initials Avatar */}
-          <div
-            className="mx-auto w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold"
-            style={{
-              background: 'linear-gradient(135deg, #0a66c2, #004182)',
-              color: '#ffffff',
-              border: `3px solid ${isDark ? 'rgba(10,102,194,0.4)' : 'rgba(10,102,194,0.2)'}`,
-            }}
-          >
-            MO
-          </div>
-
-          {/* Name & Title */}
-          <div>
-            <div className="font-semibold text-sm" style={{ color: isDark ? '#e8e8e8' : '#191919' }}>
-              Muhammad Osama
-            </div>
-            <div
-              className="text-[11px] mt-1 leading-snug"
-              style={{ color: isDark ? '#a0a0a0' : '#666666' }}
-            >
-              Sr. Software Engineer | Backend & DevOps | AI Automation (n8n & LLMs) | Laravel • Node.js • Docker • Nginx
-            </div>
-          </div>
-
-          {/* View Profile CTA */}
-          <a
-            href={profileUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1.5 px-5 py-1.5 rounded-full text-xs font-semibold transition-all hover:opacity-90"
-            style={{
-              backgroundColor: '#0a66c2',
-              color: '#ffffff',
-              textDecoration: 'none',
-            }}
-          >
-            View profile
-          </a>
-        </div>
+          Muhammad Osama
+        </a>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ export const About: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-12 space-y-16 max-w-4xl">
-      
+
       {/* Header */}
       <div className="space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full font-mono text-xs uppercase badge-emerald">
@@ -44,35 +44,22 @@ export const About: React.FC = () => {
             The Career Through-Line
           </div>
 
-          {/* Top Row: Paragraph 1 on Left + LinkedIn Badge on Right */}
-          <div className="flex flex-col md:flex-row gap-6 md:items-center">
-            <div className="flex-1">
+          {/* Top Row: Paragraph 1 & 2a on Left + Clean LinkedIn Badge Widget on Right */}
+          <div className="flex flex-col md:flex-row gap-6 md:items-start">
+            <div className="flex-1 space-y-4">
               <p>{careerNarrative.paragraph1}</p>
+              <p>{careerNarrative.paragraph2a}</p>
             </div>
 
-            {/* Compact LinkedIn Badge embedded inline on the right */}
+            {/* LinkedIn Badge Widget without custom wrapper header */}
             <div className="w-full md:w-[280px] shrink-0">
-              <div
-                className="w-full rounded-2xl p-3 flex flex-col items-center"
-                style={{
-                  backgroundColor: 'var(--bg-surface)',
-                  border: '1px solid var(--border-dim)',
-                }}
-              >
-                <div
-                  className="text-[10px] font-mono uppercase tracking-widest mb-2 text-center"
-                  style={{ color: 'var(--accent-cyan)' }}
-                >
-                  Verified LinkedIn Profile
-                </div>
-                <LinkedInBadge />
-              </div>
+              <LinkedInBadge />
             </div>
           </div>
 
-          {/* Bottom Section: Paragraphs 2, 3, and 4 Full Width */}
-          <div className="space-y-6 pt-2">
-            <p>{careerNarrative.paragraph2}</p>
+          {/* Bottom Section: Paragraph 2b, 3, and 4 Full Width */}
+          <div className="space-y-6" style={{ marginTop: 0 }}>
+            <p style={{ marginTop: 0 }}>{careerNarrative.paragraph2b}</p>
             <p>{careerNarrative.paragraph3}</p>
             <p>{careerNarrative.paragraph4}</p>
           </div>
@@ -95,7 +82,7 @@ export const About: React.FC = () => {
         <div className="relative ml-4 pl-6 space-y-8" style={{ borderLeft: '2px solid var(--border-dim)' }}>
           {workExperiences.map((exp, idx) => (
             <div key={idx} className="relative group">
-              
+
               {/* Timeline Dot */}
               <div
                 className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full border-2"
