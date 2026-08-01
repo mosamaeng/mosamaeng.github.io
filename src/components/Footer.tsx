@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
       }}
     >
       <div className="container mx-auto px-4">
-        
+
         {/* Top Operational Status Banner */}
         <div
           className="mb-12 p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          
+
           {/* Col 1: Identity */}
           <div className="space-y-4">
             <div className="flex items-center gap-3 font-heading font-bold text-lg" style={{ color: 'var(--text-primary)' }}>
@@ -125,10 +125,10 @@ export const Footer: React.FC = () => {
                   +92 312 3396927
                 </a>
               </li>
-              <li className="flex items-center gap-3">
+              {/* <li className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 shrink-0" style={{ color: 'var(--accent-violet)' }} />
-                <span>Karachi, Pakistan (Open to Remote / Relocation)</span>
-              </li>
+                <span>Karachi, Pakistan</span>
+              </li> */}
             </ul>
           </div>
 
