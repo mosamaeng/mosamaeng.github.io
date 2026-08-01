@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Terminal, Github, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Terminal, Github, Linkedin, Mail, Phone, ArrowUpRight } from 'lucide-react';
 import { getYearsOfExperience } from '../utils/experience';
 
 export const Footer: React.FC = () => {
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
             </div>
             <div>
               <div className="font-heading font-semibold text-base" style={{ color: 'var(--text-primary)' }}>
-                System Status: Operational & Ready for Senior Backend Opportunities
+                System Status: Operational — Portfolio & Architecture Showcase
               </div>
               <div className="text-xs font-mono" style={{ color: 'var(--text-muted)' }}>
                 Architecture Design • Microservices • High-Performance Databases • AI Automation
@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
           <a href="mailto:osama.symits@gmail.com" className="btn btn-primary text-xs whitespace-nowrap">
-            Initiate Contact
+            Get In Touch
             <ArrowUpRight className="w-4 h-4" />
           </a>
         </div>
@@ -125,10 +125,7 @@ export const Footer: React.FC = () => {
                   +92 312 3396927
                 </a>
               </li>
-              {/* <li className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 shrink-0" style={{ color: 'var(--accent-violet)' }} />
-                <span>Karachi, Pakistan</span>
-              </li> */}
+
             </ul>
           </div>
 

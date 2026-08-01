@@ -24,6 +24,7 @@ export interface ProjectData {
   }[];
   githubUrl?: string;
   liveUrl?: string;
+  screenshots?: { src: string; caption: string }[];
 }
 
 export const projectsData: ProjectData[] = [
@@ -91,6 +92,26 @@ export const projectsData: ProjectData[] = [
         label: 'API Response Time',
         description: 'Optimized Sequelize queries and indexed REST API controllers.'
       }
+    ],
+    screenshots: [
+      { src: '/rec-accounts/Admin-Dashboard.png', caption: 'Admin Dashboard — Overview with Projects, Finance & HR stats' },
+      { src: '/rec-accounts/Rec-Login.png', caption: 'Login Screen — Secure authentication portal' },
+      { src: '/rec-accounts/Employee-Dashboard.png', caption: 'Employee Dashboard — Personal overview & quick actions' },
+      { src: '/rec-accounts/Employee-listing.png', caption: 'Employee Directory — Full HR employee listing' },
+      { src: '/rec-accounts/Employee-Attandance.png', caption: 'Attendance Tracking — Geolocation punch verification' },
+      { src: '/rec-accounts/Attandance-daily.png', caption: 'Daily Attendance — Day-by-day attendance records' },
+      { src: '/rec-accounts/Attandance-monthly.png', caption: 'Monthly Attendance — Monthly attendance overview' },
+      { src: '/rec-accounts/Employee-leave.png', caption: 'Leave Management — Leave requests & relaxation workflow' },
+      { src: '/rec-accounts/Project-listing.png', caption: 'Project Listing — Multi-currency project tracking' },
+      { src: '/rec-accounts/Project-management-kanban.png', caption: 'Kanban Board — Interactive task management' },
+      { src: '/rec-accounts/Invoicing.png', caption: 'Invoice Generator — Letterhead & standard invoicing' },
+      { src: '/rec-accounts/Payroll-view.png', caption: 'Payroll View — Attendance-driven salary computation' },
+      { src: '/rec-accounts/eymployee-payslips.png', caption: 'Payslips — Employee payslip generation' },
+      { src: '/rec-accounts/Mobile-login.png', caption: 'Mobile Login — Responsive mobile authentication' },
+      { src: '/rec-accounts/Mobile-dashboard.png', caption: 'Mobile Dashboard — Mobile-optimized overview' },
+      { src: '/rec-accounts/Mobile-emp-dashboard.png', caption: 'Mobile Employee View — Employee mobile interface' },
+      { src: '/rec-accounts/Mobile-emp-attandance.png', caption: 'Mobile Attendance — Punch-in from mobile' },
+      { src: '/rec-accounts/Mobile-profile.png', caption: 'Mobile Profile — Employee profile on mobile' }
     ]
   },
   {
@@ -154,6 +175,10 @@ export const projectsData: ProjectData[] = [
         label: 'Automated Cadence',
         description: 'Sustained continuous thought leadership publishing without manual effort.'
       }
+    ],
+    screenshots: [
+      { src: '/n8n-linkedin-post-automation/Work-flow-for-linkedin-post.png', caption: 'n8n Workflow — Full automation pipeline with dual-model fallback' },
+      { src: '/n8n-linkedin-post-automation/Execution.png', caption: 'Execution Log — Successful workflow run with WhatsApp approval' }
     ]
   },
   {
@@ -218,6 +243,15 @@ export const projectsData: ProjectData[] = [
         label: 'OCR Accuracy',
         description: 'Gemini AI multimodal OCR extracted Urdu voter names & addresses accurately.'
       }
+    ],
+    screenshots: [
+      { src: '/voting-project/Dashboard.png', caption: 'Dashboard — Voter analytics with demographic breakdown' },
+      { src: '/voting-project/Voter-list.png', caption: 'Voter List — Mass voter records with search & filters' },
+      { src: '/voting-project/login.png', caption: 'Login — System authentication portal' },
+      { src: '/voting-project/Record-fetch-queue.png', caption: 'Queue Status — Chunked record ingestion monitoring' },
+      { src: '/voting-project/report-voter-in-block.png', caption: 'Block Report — Voters grouped by polling block' },
+      { src: '/voting-project/team-member-report.png', caption: 'Team Report — Worker activity & audit trail' },
+      { src: '/voting-project/voter-report-graph.png', caption: 'Analytics — Voter data visualization charts' }
     ]
   },
   {
@@ -276,6 +310,13 @@ export const projectsData: ProjectData[] = [
         description: 'Drove consistent inbound commercial lead generation without ad spend.'
       }
     ],
-    liveUrl: 'https://resilient-ec.com/'
+    liveUrl: 'https://resilient-ec.com/',
+    screenshots: [
+      { src: '/rec-company/Page-insight-desktop.png', caption: 'PageSpeed Insights (Desktop) — Performance, SEO & Accessibility scores' },
+      { src: '/rec-company/Page-insight-mobile.png', caption: 'PageSpeed Insights (Mobile) — Mobile performance audit' },
+      { src: '/rec-company/serach-console-3-month.png', caption: 'Search Console — 3-month search performance overview' },
+      { src: '/rec-company/analytics-1-month.png', caption: 'Google Analytics — 1-month traffic analytics' },
+      { src: '/rec-company/clicks-and-impression-overview.png', caption: 'Clicks & Impressions — Search Console engagement metrics' }
+    ]
   }
 ];

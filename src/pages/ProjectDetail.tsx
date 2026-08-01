@@ -2,7 +2,8 @@ import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { projectsData } from '../data/projectsData';
 import { ArchitectureDiagram } from '../components/ArchitectureDiagram';
-import { ArrowLeft, ExternalLink, CheckCircle2, ShieldAlert, Cpu, Layers, GitCommit, Check } from 'lucide-react';
+import { ArrowLeft, ExternalLink, CheckCircle2, ShieldAlert, Cpu, Layers, GitCommit, Check, Camera } from 'lucide-react';
+import { ProjectGallery } from '../components/ProjectGallery';
 
 export const ProjectDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -206,6 +207,23 @@ export const ProjectDetail: React.FC = () => {
           ))}
         </div>
       </section>
+
+      {/* Section 7: Screenshots Gallery */}
+      {project.screenshots && project.screenshots.length > 0 && (
+        <section className="space-y-6">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider" style={{ color: 'var(--accent-violet)' }}>
+            <Camera className="w-4 h-4" />
+            <span>07. System Screenshots & Visual Evidence</span>
+          </div>
+          <h2 className="font-heading font-bold text-2xl" style={{ color: 'var(--text-primary)' }}>
+            Application Screenshots
+          </h2>
+          <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+            Click any screenshot to view full-size. Use arrow keys or navigation buttons to browse.
+          </p>
+          <ProjectGallery screenshots={project.screenshots} />
+        </section>
+      )}
 
     </div>
   );

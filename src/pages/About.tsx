@@ -158,8 +158,8 @@ export const About: React.FC = () => {
       {/* Bottom CTA */}
       <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid var(--border-dim)' }}>
         <div>
-          <div className="font-heading font-bold text-base" style={{ color: 'var(--text-primary)' }}>Want to discuss backend architecture or team lead roles?</div>
-          <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>Available for senior roles in high-scale backend systems.</div>
+          <div className="font-heading font-bold text-base" style={{ color: 'var(--text-primary)' }}>Interested in my backend architecture work?</div>
+          <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>Explore the production systems and engineering decisions behind each project.</div>
         </div>
         <Link to="/projects" className="btn btn-primary text-xs">
           Explore Production Projects <ArrowRight className="w-4 h-4" />
